@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Products from './components/Products/Products'
 
 class App extends React.Component {
   render() {
@@ -7,8 +8,8 @@ class App extends React.Component {
   return (
     <div className="App">     
       <div>
-        <Filters></Filters> 
-        <Cart></Cart> 
+        {/* <Filters></Filters> 
+        <Cart></Cart>  */}
         <Products></Products>
       </div>
     </div>
