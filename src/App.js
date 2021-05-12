@@ -6,10 +6,10 @@ class App extends React.Component {
 
   return (
     <div className="App">     
-      <div> {/* div principal com os CARDS no meio, CARRINHO NA DIREITA e FILTRO NA ESQUERDA */}
-        <div></div> {/* div dos CARDS */}
-        <div></div> {/* div do CARRINHO */}
-        <div></div> {/* div do FILTRO */}
+      <div>
+        <Filters></Filters> 
+        <Cart></Cart> 
+        <Products></Products>
       </div>
     </div>
   );
