@@ -53,7 +53,8 @@ const ProductsOrder = styled.div`
 `
 
 const ProductsView = styled.div`
-    display:flex;  
+    display:grid;
+    grid-template-columns: repeat(3, 1fr)  
 
 `
 const ProductCard = styled.div`
