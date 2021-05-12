@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
 
-function App() {
+class App extends React.Component {
+  render() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App">     
+      <div> {/* div principal com os CARDS no meio, CARRINHO NA DIREITA e FILTRO NA ESQUERDA */}
+        <div></div> {/* div dos CARDS */}
+        <div></div> {/* div do CARRINHO */}
+        <div></div> {/* div do FILTRO */}
+      </div>
     </div>
   );
 }
 
+}
 export default App;
