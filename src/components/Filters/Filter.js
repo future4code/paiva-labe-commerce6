@@ -10,6 +10,8 @@ const Borda = styled.div`
     border: 1px solid black;
     width: 15vw;
     height: 90vh;
+    position: fixed;
+    top: 0px;
 `
 
 const Input = styled.input`
@@ -23,11 +25,11 @@ export default class Filters extends React.Component {
             <Borda>
                 <h1>Filtros</h1>
                 <p>Valor Mínimo:</p>
-                <Input type="number"></Input>
+                <Input type="number" value={this.props.minFilter} onChange={this.props.handleChangeMin}></Input>
                 <p>Valor Máximo:</p>
-                <Input type="number"></Input>
+                <Input type="number" value={this.props.maxFilter} onChange={this.props.handleChangeMax}></Input>
                 <p>Busca por nome:</p>
-                <Input type="text"></Input>
+                <Input type="text" value={this.props.nameFilter} onChange={this.props.handleChangeName}></Input>
             </Borda>
         )
     }

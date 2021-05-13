@@ -47,12 +47,31 @@ const products = [
     name: 'Produto 6',
     price: 177,
     photo: satelite6
-  }
+  },
+
 ]
 
 
 
 export default class App extends React.Component {
+
+  state = {
+    minFilter: 0,
+    maxFilter: 10000,
+    nameFilter: "",
+
+  }
+
+  handleChangeMin = (event) => {
+    this.setState({minFilter: event.target.value})
+  }
+  handleChangeMax = (event) => {
+    this.setState({maxFilter: event.target.value})
+  }
+  handleChangeName = (event) => {
+    this.setState({nameFilter: event.target.value})
+  }
+
   render() {
 
     return (
@@ -61,8 +80,18 @@ export default class App extends React.Component {
           <Cart></Cart>
           <Products
             products={products}
+            minFilter={this.state.minFilter}
+            maxFilter={this.state.maxFilter}
+            nameFilter={this.state.nameFilter}
           />
-          <Filters />
+          <Filters 
+            minFilter={this.state.minFilter}
+            maxFilter={this.state.maxFilter}
+            nameFilter={this.state.nameFilter}
+            handleChangeMin={this.handleChangeMin}            
+            handleChangeMax={this.handleChangeMax}            
+            handleChangeName={this.handleChangeName}         
+          />
         </div>
       </div>
     );
