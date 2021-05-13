@@ -54,8 +54,6 @@ class App extends React.Component {
     return (
       <div className="App">
         <div>
-          {/* <Filters></Filters> 
-        <Cart></Cart>  */}
           <Products
             products={products}
           />
