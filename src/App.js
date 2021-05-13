@@ -1,4 +1,5 @@
 import React from 'react';
+import Filters from './components/Filters/Filter'
 import styled from 'styled-components';
 import Products from './components/Products/Products';
 import satelite1 from './imgs/satelite1.jpg'
@@ -47,17 +48,20 @@ const products = [
     photo: satelite6
   }
 ]
+import {Cart} from './components/Cart/Cart';
+
 
 class App extends React.Component {
   render() {
 
-    return (
-      <div className="App">
-        <div>
-          <Products
+  return (
+    <div className="App">     
+      <div>
+        <Cart></Cart>          
+        <Products
             products={products}
           />
-        </div>
+        <Filters/>
       </div>
     );
   }
