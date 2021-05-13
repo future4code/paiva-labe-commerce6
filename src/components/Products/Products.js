@@ -85,30 +85,15 @@ class App extends React.Component {
                     </ProductsOrder>
                 </ProductsHeader>
                 <ProductsView>
-                    <ProductCard>
-                        <img src={'https://picsum.photos/200/200?a=1'} />
-                        <p>Produto legal</p>
-                        <p>R$123,00</p>
-                        <button>Adicionar ao carrinho</button>
-                    </ProductCard>
-                    <ProductCard>
-                        <img src={'https://picsum.photos/200/200?a=2'} />
-                        <p>Produto 2</p>
-                        <p>R$200,00</p>
-                        <button>Adicionar ao carrinho</button>
-                    </ProductCard>
-                    <ProductCard>
-                        <img src={'https://picsum.photos/200/200?a=3'} />
-                        <p>Produto 3</p>
-                        <p>R$30,00</p>
-                        <button>Adicionar ao carrinho</button>
-                    </ProductCard>
-                    <ProductCard>
-                        <img src={'https://picsum.photos/200/200?a=4'} />
-                        <p>Produto 4</p>
-                        <p>R$10,00</p>
-                        <button>Adicionar ao carrinho</button>
-                    </ProductCard>
+                    {products.map((product) => {
+                        return <ProductCard>
+                            <img src={product.photo} />
+                            <p>{product.name}</p>
+                            <p>{product.price}</p>
+                            <button>Adicionar ao carrinho</button>
+                        </ProductCard>
+                    })
+                    }
                 </ProductsView>
             </ProductsContainer>
         );
