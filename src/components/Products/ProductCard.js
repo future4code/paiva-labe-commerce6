@@ -16,6 +16,9 @@ const ProductBox = styled.div`
     align-items:center;
     margin: 8px;
     padding-bottom:16px;
+    img {
+        width: 208px;
+    }
 `
 
 
