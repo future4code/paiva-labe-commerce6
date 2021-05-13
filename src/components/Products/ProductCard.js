@@ -20,7 +20,7 @@ const ProductBox = styled.div`
 
 
 class ProductCards extends React.Component {
-    render(props) {
+    render() {
 
         return (
             <ProductsView>
