@@ -8,9 +8,9 @@ class App extends React.Component {
   return (
     <div className="App">     
       <div>
-        <Filters></Filters> 
+        {/* <Filters></Filters>  */}
         <Cart></Cart> 
-        <Products></Products>
+        {/* <Products></Products> */}
       </div>
     </div>
   );
