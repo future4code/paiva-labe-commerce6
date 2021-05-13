@@ -2,6 +2,7 @@ import React from 'react';
 import Filters from './components/Filters/Filter'
 import styled from 'styled-components';
 import Products from './components/Products/Products';
+import { Cart } from './components/Cart/Cart';
 import satelite1 from './imgs/satelite1.jpg'
 import satelite2 from './imgs/satelite2.jpg'
 import satelite3 from './imgs/satelite3.jpg'
@@ -48,23 +49,23 @@ const products = [
     photo: satelite6
   }
 ]
-import {Cart} from './components/Cart/Cart';
 
 
-class App extends React.Component {
+
+export default class App extends React.Component {
   render() {
 
-  return (
-    <div className="App">     
-      <div>
-        <Cart></Cart>          
-        <Products
+    return (
+      <div className="App">
+        <div>
+          <Cart></Cart>
+          <Products
             products={products}
           />
-        <Filters/>
+          <Filters />
+        </div>
       </div>
     );
   }
-
 }
-export default App;
+
