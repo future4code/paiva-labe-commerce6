@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ProductCards from './ProductCard'
 
 
 const products = [
@@ -48,28 +49,12 @@ const ProductsHeader = styled.div`
 
 const ProductsOrder = styled.div`
     display:flex;
-    /* flex-direction:column; */
     align-items:center;
 `
 
-const ProductsView = styled.div`
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);  
-
-`
-const ProductCard = styled.div`
-    border:solid 1px black;
-    display:flex;
-    flex-direction:column;
-    box-sizing:border-box;
-    flex-wrap: wrap;
-    align-items:center;
-    margin: 8px;
-    padding-bottom:16px;
-`
 
 
-class App extends React.Component {
+class Products extends React.Component {
     render() {
 
         return (
@@ -84,20 +69,13 @@ class App extends React.Component {
                         </select>
                     </ProductsOrder>
                 </ProductsHeader>
-                <ProductsView>
-                    {products.map((product) => {
-                        return <ProductCard>
-                            <img src={product.photo} />
-                            <p>{product.name}</p>
-                            <p>{product.price}</p>
-                            <button>Adicionar ao carrinho</button>
-                        </ProductCard>
-                    })
-                    }
-                </ProductsView>
+
+                <ProductCards 
+                    products={products}
+                />
             </ProductsContainer>
         );
     }
 
 }
-export default App;
+export default Products;
