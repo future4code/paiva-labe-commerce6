@@ -32,14 +32,9 @@ class Products extends React.Component {
     }
 
     orderedList = () => {
-        return this.props.products.sort((a,b) => {
-            if(this.state.order === 'crescente'){
-                return a.price-b.price
-            } else {
-                return b.price-a.price
-            }
-            
-        })
+        return this.props.products
+        .sort((a,b) => this.state.order === 'crescente' ? a.price-b.price: b.price-a.price)
+
     }
 
     onChangeOrder = (event) => {

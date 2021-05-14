@@ -65,7 +65,8 @@ class App extends React.Component {
           <Filters />
         </div>
       </div>
-    </div>);
+    );
   }
 }
 
+export default App;
