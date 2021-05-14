@@ -10,126 +10,130 @@ import satelite4 from './imgs/satelite4.jpg'
 import satelite5 from './imgs/satelite5.jpg'
 import satelite6 from './imgs/satelite6.jpg'
 
-
+const MainContainer = styled.div`
+  display:flex;
+  margin:16px;
+  box-sizing: border-box;
+`
 
 export default class App extends React.Component {
-  
+
   state = {
-  products: [
-    {
-      id: 1,
-      name: 'Produto legal',
-      price: 123,
-      photo: satelite1,
-      contador: 0
-    },
-    {
-      id: 2,
-      name: 'Produto 2',
-      price: 200,
-      photo: satelite2,
-      contador: 0
-    },
-    {
-      id: 3,
-      name: 'Produto 3',
-      price: 30,
-      photo: satelite3,
-      contador: 0
-    },
-    {
-      id: 4,
-      name: 'Produto 4',
-      price: 10,
-      photo: satelite4,
-      contador: 0
-    },
-    {
-      id: 5,
-      name: 'Produto 5',
-      price: 110,
-      photo: satelite5,
-      contador: 0
-    },
-    {
-      id: 6,
-      name: 'Produto 6',
-      price: 177,
-      photo: satelite6,
-      contador: 0
-    }
-  ],
-  itensCart:[
- 
-    
-  ],
-    
+    products: [
+      {
+        id: 1,
+        name: 'Produto legal',
+        price: 123,
+        photo: satelite1,
+        contador: 0
+      },
+      {
+        id: 2,
+        name: 'Produto 2',
+        price: 200,
+        photo: satelite2,
+        contador: 0
+      },
+      {
+        id: 3,
+        name: 'Produto 3',
+        price: 30,
+        photo: satelite3,
+        contador: 0
+      },
+      {
+        id: 4,
+        name: 'Produto 4',
+        price: 10,
+        photo: satelite4,
+        contador: 0
+      },
+      {
+        id: 5,
+        name: 'Produto 5',
+        price: 110,
+        photo: satelite5,
+        contador: 0
+      },
+      {
+        id: 6,
+        name: 'Produto 6',
+        price: 177,
+        photo: satelite6,
+        contador: 0
+      }
+    ],
+    itensCart: [
+
+
+    ],
+
     minFilter: 0,
     maxFilter: 10000,
     nameFilter: "",
-}
+  }
 
   handleChangeMin = (event) => {
-    this.setState({minFilter: event.target.value})
+    this.setState({ minFilter: event.target.value })
   }
   handleChangeMax = (event) => {
-    this.setState({maxFilter: event.target.value})
+    this.setState({ maxFilter: event.target.value })
   }
   handleChangeName = (event) => {
-    this.setState({nameFilter: event.target.value})
+    this.setState({ nameFilter: event.target.value })
   }
 
-excluirItem = (product) =>{
-  console.log("clicou")
-  const itensCart = this.state.itensCart.slice();
-  this.setState({itensCart: itensCart.filter((item) => item.id !== product.id)});
+  excluirItem = (product) => {
+    console.log("clicou")
+    const itensCart = this.state.itensCart.slice();
+    this.setState({ itensCart: itensCart.filter((item) => item.id !== product.id) });
 
-} 
+  }
 
-addOnCart = (novoProd) => {
-  const productsInCart = [...this.state.cart, novoProd]
-  this.setState({cart: productsInCart})
-}
+  addOnCart = (novoProd) => {
+    const productsInCart = [...this.state.cart, novoProd]
+    this.setState({ cart: productsInCart })
+  }
 
-addCart = (item) => {
-  const itensCart = this.state.itensCart.slice();
-  let itemNoCart = false;
-  this.state.products.forEach(item => {
-    if(item.id === this.state.products.id){
-      item.contador++;
-      itemNoCart = true;
+  addCart = (item) => {
+    const itensCart = this.state.itensCart.slice();
+    let itemNoCart = false;
+    this.state.products.forEach(item => {
+      if (item.id === this.state.products.id) {
+        item.contador++;
+        itemNoCart = true;
+      }
+    });
+    if (!itemNoCart) {
+      itensCart.push({ ...this.item, contador: 1 });
     }
-  });
-  if (!itemNoCart){
-    itensCart.push({...this.item, contador:1});
-  }
-  const productsInCart = [...this.state.itensCart, item]
-  this.setState({itensCart: productsInCart})
-};
+    const productsInCart = [...this.state.itensCart, item]
+    this.setState({ itensCart: productsInCart })
+  };
 
   render() {
 
     return (
-      <div className="App">
-        <div>
-          <Cart itensCart={this.state.itensCart} excluirItem = {this.excluirItem}/>
-          <Products
-            products={this.state.products}
-            minFilter={this.state.minFilter}
-            maxFilter={this.state.maxFilter}
-            nameFilter={this.state.nameFilter}
-            addCart = {this.addCart}
-          />
-          <Filters 
-            minFilter={this.state.minFilter}
-            maxFilter={this.state.maxFilter}
-            nameFilter={this.state.nameFilter}
-            handleChangeMin={this.handleChangeMin}            
-            handleChangeMax={this.handleChangeMax}            
-            handleChangeName={this.handleChangeName}         
-          />
-        </div>
-      </div>
+      <MainContainer>
+        <Filters
+          minFilter={this.state.minFilter}
+          maxFilter={this.state.maxFilter}
+          nameFilter={this.state.nameFilter}
+          handleChangeMin={this.handleChangeMin}
+          handleChangeMax={this.handleChangeMax}
+          handleChangeName={this.handleChangeName}
+        />
+
+        <Products
+          products={this.state.products}
+          minFilter={this.state.minFilter}
+          maxFilter={this.state.maxFilter}
+          nameFilter={this.state.nameFilter}
+          addCart={this.addCart}
+        />
+
+        <Cart itensCart={this.state.itensCart} excluirItem={this.excluirItem} />
+      </MainContainer>
     );
- }
+  }
 }
