@@ -32,23 +32,19 @@ class Products extends React.Component {
     }
 
     orderedList = () => {
-        return this.props.products.sort((a,b) => {
-            if(this.state.order === 'crescente'){
-                return a.price-b.price
-            } else {
-                return b.price-a.price
-            }
-            
-        })
+        return this.props.products.filter(product => product.price >= this.props.minFilter)
+            .filter(product => product.price <= this.props.maxFilter)
+            .filter(product => product.name.includes(this.props.nameFilter))
+            .sort((a, b) => this.state.order === 'crescente' ? a.price - b.price : b.price - a.price)
     }
 
     onChangeOrder = (event) => {
-        return this.setState({order: event.target.value})
+        return this.setState({ order: event.target.value })
     }
 
     render() {
         const orderedList = this.orderedList()
-        
+
         return (
             <ProductsContainer>
                 <ProductsHeader>
@@ -62,7 +58,7 @@ class Products extends React.Component {
                     </ProductsOrder>
                 </ProductsHeader>
 
-                <ProductCards 
+                <ProductCards
                     orderedList={orderedList}
                 />
             </ProductsContainer>
