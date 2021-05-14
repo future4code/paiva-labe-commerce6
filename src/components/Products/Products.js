@@ -60,6 +60,7 @@ class Products extends React.Component {
 
                 <ProductCards
                     orderedList={orderedList}
+                    addCart = {this.props.addCart}
                 />
             </ProductsContainer>
         );
