@@ -2,7 +2,7 @@ import React from 'react';
 import Filters from './components/Filters/Filter'
 import styled from 'styled-components';
 import Products from './components/Products/Products';
-import { Cart } from './components/Cart/Cart';
+import {Cart} from './components/Cart/Cart';
 import satelite1 from './imgs/satelite1.jpg'
 import satelite2 from './imgs/satelite2.jpg'
 import satelite3 from './imgs/satelite3.jpg'
@@ -55,13 +55,7 @@ state = {
     minFilter: 0,
     maxFilter: 10000,
     nameFilter: "",
-
   }
-
-  .filter((product) => this.props.maxFilter ? product.price < this.props.maxFilter : true)
-  .filter((product) => this.props.minFilter ? product.price > this.props.minFilter : true)
-  .filter((product) => this.props.nameFilter ? product.name.includes(this.props.nameFilter) : true)
-
 
   handleChangeMin = (event) => {
     this.setState({minFilter: event.target.value})
@@ -97,4 +91,3 @@ state = {
       </div>
     );
  }
-}
