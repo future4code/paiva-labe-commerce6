@@ -59,6 +59,7 @@ class Products extends React.Component {
                 </ProductsHeader>
 
                 <ProductCards
+                    addOnCart={this.props.addOnCart}
                     orderedList={orderedList}
                     addCart = {this.props.addCart}
                 />

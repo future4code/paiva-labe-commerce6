@@ -2,7 +2,7 @@ import React from 'react';
 import Filters from './components/Filters/Filter'
 import styled from 'styled-components';
 import Products from './components/Products/Products';
-import {Cart} from './components/Cart/Cart';
+import Cart from './components/Cart/Cart';
 import satelite1 from './imgs/satelite1.jpg'
 import satelite2 from './imgs/satelite2.jpg'
 import satelite3 from './imgs/satelite3.jpg'
@@ -118,6 +118,7 @@ addCart = (item) => {
             minFilter={this.state.minFilter}
             maxFilter={this.state.maxFilter}
             nameFilter={this.state.nameFilter}
+            addCart = {this.addCart}
           />
           <Filters 
             minFilter={this.state.minFilter}
