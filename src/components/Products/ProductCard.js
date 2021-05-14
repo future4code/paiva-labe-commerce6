@@ -27,9 +27,8 @@ class ProductCards extends React.Component {
 
         return (
             <ProductsView>
-                
-            {this.props.products.map((product) => {
-                return <ProductBox>
+            {this.props.orderedList.map((product) => {
+                return <ProductBox key={product.id}>
                     <img src={product.photo} />
                     <p>{product.name}</p>
                     <p>{product.price}</p>

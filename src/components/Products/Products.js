@@ -27,7 +27,23 @@ const ProductsOrder = styled.div`
 
 
 class Products extends React.Component {
+    state = {
+        order: 'decrescente'
+    }
+
+    orderedList = () => {
+        return this.props.products.filter(product => product.price >= this.props.minFilter)
+            .filter(product => product.price <= this.props.maxFilter)
+            .filter(product => product.name.includes(this.props.nameFilter))
+            .sort((a, b) => this.state.order === 'crescente' ? a.price - b.price : b.price - a.price)
+    }
+
+    onChangeOrder = (event) => {
+        return this.setState({ order: event.target.value })
+    }
+
     render() {
+        const orderedList = this.orderedList()
 
         return (
             <ProductsContainer>
@@ -35,15 +51,16 @@ class Products extends React.Component {
                     <p>Quantidade de produtos: {this.props.products.length}</p>
                     <ProductsOrder>
                         <p>Ordenação: </p>
-                        <select>
+                        <select value={this.state.order} onChange={this.onChangeOrder}>
                             <option value={'crescente'}>Crescente</option>
                             <option value={'decrescente'}>Decrescente</option>
                         </select>
                     </ProductsOrder>
                 </ProductsHeader>
 
-                <ProductCards 
-                    products={this.props.products} addCart = {this.props.addCart}
+                <ProductCards
+                    orderedList={orderedList}
+                    addCart = {this.props.addCart}
                 />
             </ProductsContainer>
         );
