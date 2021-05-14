@@ -27,12 +27,13 @@ class ProductCards extends React.Component {
 
         return (
             <ProductsView>
+                
             {this.props.products.map((product) => {
                 return <ProductBox>
                     <img src={product.photo} />
                     <p>{product.name}</p>
                     <p>{product.price}</p>
-                    <button>Adicionar ao carrinho</button>
+                    <button onClick = {() => this.props.addCart(product)}>Adicionar ao carrinho</button>
                 </ProductBox>
             })
             }

@@ -43,7 +43,7 @@ class Products extends React.Component {
                 </ProductsHeader>
 
                 <ProductCards 
-                    products={this.props.products}
+                    products={this.props.products} addCart = {this.props.addCart}
                 />
             </ProductsContainer>
         );
