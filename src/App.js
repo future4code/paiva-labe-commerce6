@@ -11,7 +11,6 @@ import satelite5 from './imgs/satelite5.jpg'
 import satelite6 from './imgs/satelite6.jpg'
 
 
-
 class App extends React.Component {
   state = {
     products: [
@@ -63,10 +62,10 @@ class App extends React.Component {
         <Products
             products={this.state.products}
           />
-        <Filters/>
+          <Filters />
+        </div>
       </div>
     </div>);
   }
-
 }
-export default App;
+
