@@ -118,6 +118,7 @@ addCart = (item) => {
             minFilter={this.state.minFilter}
             maxFilter={this.state.maxFilter}
             nameFilter={this.state.nameFilter}
+            addCart = {this.addCart}
           />
           <Filters 
             minFilter={this.state.minFilter}
