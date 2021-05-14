@@ -27,15 +27,35 @@ const ProductsOrder = styled.div`
 
 
 class Products extends React.Component {
-    render() {
+    state = {
+        order: 'decrescente'
+    }
 
+    orderedList = () => {
+        return this.props.products.sort((a,b) => {
+            if(this.state.order === 'crescente'){
+                return a.price-b.price
+            } else {
+                return b.price-a.price
+            }
+            
+        })
+    }
+
+    onChangeOrder = (event) => {
+        return this.setState({order: event.target.value})
+    }
+
+    render() {
+        const orderedList = this.orderedList()
+        
         return (
             <ProductsContainer>
                 <ProductsHeader>
                     <p>Quantidade de produtos: {this.props.products.length}</p>
                     <ProductsOrder>
                         <p>Ordenação: </p>
-                        <select>
+                        <select value={this.state.order} onChange={this.onChangeOrder}>
                             <option value={'crescente'}>Crescente</option>
                             <option value={'decrescente'}>Decrescente</option>
                         </select>
@@ -43,7 +63,7 @@ class Products extends React.Component {
                 </ProductsHeader>
 
                 <ProductCards 
-                    products={this.props.products}
+                    orderedList={orderedList}
                 />
             </ProductsContainer>
         );
