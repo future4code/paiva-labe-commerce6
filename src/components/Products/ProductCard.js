@@ -3,9 +3,11 @@ import styled from 'styled-components';
 
 
 const ProductsView = styled.div`
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);  
-
+    display:flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 `
 const ProductBox = styled.div`
     border:solid 1px black;
