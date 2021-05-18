@@ -2,5 +2,5 @@ Projeto em grupo com o objetivo de simular um e-commerce simples com as funciona
 Grupo formado por Micheline Farias Felix Barros, Vitor Suzuki e Pedro Stefani Saldanha.
 
 Link do surge:
-http://nonchalant-boat.surge.sh/
+http://young-children.surge.sh/
 
