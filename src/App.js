@@ -90,25 +90,53 @@ export default class App extends React.Component {
 
   }
 
-  addOnCart = (novoProd) => {
-    const productsInCart = [...this.state.cart, novoProd]
-    this.setState({ cart: productsInCart })
-  }
+  // addOnCart = (novoProd) => {
+  //   const productsInCart = [...this.state.cart, novoProd]
+  //   this.setState({ cart: productsInCart })
+  // }
 
-  addCart = (item) => {
-    const itensCart = this.state.itensCart.slice();
-    let itemNoCart = false;
-    this.state.products.forEach(item => {
-      if (item.id === this.state.products.id) {
-        item.contador++;
-        itemNoCart = true;
+  
+    addCart = (id) => {
+      console.log(id);
+    const copiaProdutos = [...this.state.products];
+    console.log(copiaProdutos);
+    let idProduto = copiaProdutos.filter((product) => {
+      
+      if(id === product.id){
+        console.log("entrou no 1 if")
+        return true;
       }
+      return false;
     });
-    if (!itemNoCart) {
-      itensCart.push({ ...this.item, contador: 1 });
+    let produtosCart = [...this.state.itensCart];
+    let itemNoCart= false;
+    produtosCart.map((prod) => {
+      if (id === prod.id){
+        console.log("entrou no 2 if")
+        itemNoCart = true;
+        prod.contador++;
+      }
+      return false;
+    });
+    if(!itemNoCart){
+      console.log("entrou no contador de indefinido")
+      idProduto[0].contador = 1;
+      produtosCart.push(idProduto[0]);
     }
-    const productsInCart = [...this.state.itensCart, item]
-    this.setState({ itensCart: productsInCart })
+    this.setState({itensCart:[... produtosCart]});
+    // const itensCart = this.state.itensCart.slice();
+    // let itemNoCart = false;
+    // this.state.products.forEach(item => {
+    //   if (item.id === this.state.products.id) {
+    //     item.contador++;
+    //     itemNoCart = true;
+    //   }
+    // });
+    // if (!itemNoCart) {
+    //   itensCart.push({ ...this.item, contador: 1 });
+    // }
+    // const productsInCart = [...this.state.itensCart, item]
+    // this.setState({ itensCart: productsInCart })
   };
 
   render() {

@@ -34,7 +34,7 @@ class ProductCards extends React.Component {
                     <img src={product.photo} />
                     <p>{product.name}</p>
                     <p>{product.price}</p>
-                    <button onClick = {() => this.props.addCart(product)}>Adicionar ao carrinho</button>
+                    <button onClick = {() => this.props.addCart(product.id)}>Adicionar ao carrinho</button>
                 </ProductBox>
             })
             }
