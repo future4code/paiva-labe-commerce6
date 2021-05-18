@@ -42,6 +42,13 @@ const DivBotao = styled.div`
 
 
 class Cart extends React.Component {
+    getTotalValor = () => {
+        let valorTotal = 0
+        for(let item of this.props.itensCart){
+            valorTotal += item.price * item.contador
+        }
+        return valorTotal
+    }
     render() {
         const { itensCart } = this.props;
         return (
@@ -51,21 +58,22 @@ class Cart extends React.Component {
                 <div>
                     <ContainerItens>
                         <DivItens>
-                            {itensCart.map(item =>
-                                <Li key={item.id}>
+                            {itensCart.map(product =>
+                                <Li key={product.id}>
                                     <DivLi>
-                                        <Imagens src={item.photo}></Imagens>
+                                        <Imagens src={product.photo}></Imagens>
                                     </DivLi>
                                     <DivLi2>
-                                        <DivLi>{item.name}</DivLi>
+                                        <DivLi>{product.name}</DivLi>
                                         <DivBotao>
-                                            Valor R$: {item.price} x {item.contador}{" "}
-                                            <button onClick={() => this.props.excluirItem(item)}>Excluir</button>
+                                            Valor R$: {product.price} x {product.contador}{" "}
+                                            <button onClick={() => this.props.excluirItem(product)}>Excluir</button>
                                         </DivBotao>
 
                                     </DivLi2>
                                 </Li>
                             )}
+                            <p>Valor total: R${this.getTotalValor()},00</p>
                         </DivItens>
                     </ContainerItens>
                 </div>
