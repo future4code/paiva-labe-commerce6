@@ -8,10 +8,7 @@ const Borda = styled.div`
     align-items: center;
     flex-direction: column;
     border: 1px solid black;
-    width: 15vw;
-    height: 90vh;
-    position: fixed;
-    top: 0px;
+    width: 20vw;
 `
 
 const Input = styled.input`
